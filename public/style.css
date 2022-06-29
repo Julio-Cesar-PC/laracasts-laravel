@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(67, 67, 67);
+    color: aliceblue;
+    font-family: sans-serif;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.5;
+}
+
+a {
+    color: aliceblue;
+}
+
+.post {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.post:hover {
+    background-color: rgb(80, 80, 80);
+}
+
+article + article {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid aliceblue;
+}
