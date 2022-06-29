@@ -15,9 +15,13 @@
                     <input class="border border-gray-400 p-2 w-full"
                            type="text"
                            name="name"
+                           value="{{ old('name') }}"
                            id="name"
                            required
                     >
+                    @error('name')
+                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
@@ -30,9 +34,13 @@
                     <input class="border border-gray-400 p-2 w-full"
                            type="text"
                            name="username"
+                            value="{{ old('username') }}"
                            id="username"
                            required
                     >
+                    @error('username')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
@@ -45,9 +53,13 @@
                     <input class="border border-gray-400 p-2 w-full"
                            type="email"
                            name="email"
+                            value="{{ old('email') }}"
                            id="email"
                            required
                     >
+                    @error('email')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
@@ -63,6 +75,9 @@
                            id="password"
                            required
                     >
+                    @error('password')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
