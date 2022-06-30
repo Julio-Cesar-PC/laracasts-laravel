@@ -1,6 +1,6 @@
 <x-layout>
     <section class="px-6 py-8">
-        <main class="max-w-lg mx-auto mt-10 bg-gray-200 p-10 rounded-xl">
+        <main class="max-w-lg mx-auto mt-10 bg-gray-100 p-10 rounded-xl">
             <h1 class="text-center font-bold text-xl pb-10">Resgister</h1>
             <form method="POST" action="/register" class="mt-10">
                 @csrf
