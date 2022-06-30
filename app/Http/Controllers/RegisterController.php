@@ -22,10 +22,11 @@ class RegisterController extends Controller
             'password' => 'required|max:255|min:8'
         ]);
 
-        User::create($attribute);
+        $user = User::create($attribute);
 
-        session()->flash('message', 'User created successfully');
+        // log in user
+        auth()->login($user);
 
-        return redirect('/');
+        return redirect('/')->with('message', 'User created successfully');
     }
 }

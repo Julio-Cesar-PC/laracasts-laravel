@@ -16,9 +16,14 @@
         </div>
 
         <div class="mt-8 md:mt-0">
-            <a href="/" class="text-xs font-bold uppercase">Home Page</a>
-
-            <a href="/register"
+            @guest
+                <a href="/login" class="inline-block px-4 py-2 leading-none border rounded text-black border-white hover:border-transparent hover:text-blue-500 hover:bg-white">Login</a>
+                <a href="/register" class="inline-block x-4 py-2 leading-none border rounded text-black border-white hover:border-transparent hover:text-blue-500 hover:bg-white">Register</a>
+            @else
+                <span class="inline-block x-4 py-2 leading-none border rounded text-blue-500 border-white hover:border-transparent"><span class="text-black">Walcome back</span> {{ auth()->user()->name }}</span>
+                <a href="/logout" class="inline-block px-4 py-2 leading-none border rounded text-black border-white hover:border-transparent hover:text-blue-500 hover:bg-white">Logout</a>
+            @endguest
+            <a href="/"
                class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                 Subscribe for Updates
             </a>
