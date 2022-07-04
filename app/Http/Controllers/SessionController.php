@@ -18,9 +18,10 @@ class SessionController extends Controller
             'email' => 'required|email|max:255',
             'password' => 'required|max:255|min:8'
         ]);
+
         // log in user
         if (auth()->attempt($attribute)) {
-            return redirect('/')->with('message', 'Welcome back' . auth()->user()->name);
+            return redirect('/')->with('message', 'Welcome back ' . auth()->user()->name);
         }
 
         return back()->withErrors(['message' => 'Invalid email or password']);

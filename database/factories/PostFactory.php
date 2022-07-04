@@ -6,11 +6,14 @@ use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
+/*
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
 class PostFactory extends Factory
 {
+    private $User;
+    private $Category;
+
     /**
      * Define the model's default state.
      *
@@ -19,8 +22,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->randomDigitNotNull%6 + 1,
-            'category_id' => $this->faker->randomDigitNotNull%6 + 1,
+            'user_id' => $this->faker->randomElement(User::all()),
+            'category_id' => $this->faker->randomElement(Category::all()),
             'title' => $this->faker->sentence,
             'excerpt' => $this->faker->sentence,
             'body' => $this->faker->paragraph,
