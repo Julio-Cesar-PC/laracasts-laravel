@@ -38,9 +38,9 @@
 
                 </div>
 
-                <div class="mb-6">
+                <div class="mb-6 flex justify-center">
                     <button type="submit"
-                    class="bg-green-400 text-white rounded py-2 px-4 hover:bg-green-500"
+                            class="bg-green-400 text-white rounded py-2 px-4 hover:bg-green-500 w-full"
                     >
                         Log In
                     </button>
@@ -49,6 +49,8 @@
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </form>
+
+            <a class="bg-green-400 text-white rounded py-2 px-4 hover:bg-green-500 w-full flex justify-center mt-10" href="/register">Register</a>
         </main>
     </section>
 </x-layout>

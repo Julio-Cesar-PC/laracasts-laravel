@@ -13,7 +13,7 @@
             </h3>
             <p class="text-xs">
                 posted
-                <time>{{ $comment->created_at }}</time>
+                <time>{{ $comment->created_at->diffForHumans() }}</time>
             </p>
 
             <p>{{ $comment->body }}</p>
