@@ -18,9 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
  */
 // Dashboard
-Route::get('/dashboard', function () {
-    return view('Dashboard.dashboard');
-});
+Route::get('/dashboard', [SessionController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+// Add Post
+Route::get('/create-post', [PostController::class, 'create'])->name('add-post')->middleware('auth');
+Route::post('/create-post', [PostController::class, 'store'])->name('add-post')->middleware('auth');
 
 // PostController::class
 Route::get('/', [PostController::class, 'index'])->name('home');
