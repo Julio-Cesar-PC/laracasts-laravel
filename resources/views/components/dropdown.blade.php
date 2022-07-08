@@ -1,4 +1,4 @@
-<div x-data="{show: false}" @click.away="show = false" class="bg-gray-100">
+<div x-data="{show: false}" @click.away="show = false" class="bg-gray-100 relative">
 
     <div @click="show = !show">
         {{ $trigger }}

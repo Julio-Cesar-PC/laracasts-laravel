@@ -2,89 +2,26 @@
     <section class="px-6 py-8">
         <main class="max-w-lg mx-auto mt-10 bg-gray-100 p-10 rounded-xl">
             <h1 class="text-center font-bold text-xl pb-10">Post</h1>
-            <form method="POST" action="/create-post" class="mt-10">
+            <form method="POST" action="/admin/posts" class="mt-10" enctype="multipart/form-data">
                 @csrf
 
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="title"
-                    >
-                        Title
-                    </label>
+                <x-form-input name="title" />
 
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="text"
-                           name="title"
-                           value="{{ old('title') }}"
-                           id="title"
-                           required
-                    >
-                    @error('title')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                    @enderror
-                </div>
+                <x-form-input name="slug" />
 
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="excerpt"
-                    >
-                        Excerpt
-                    </label>
+                <x-form-input name="thumbnail" type="file" />
 
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="text"
-                           name="excerpt"
-                           value="{{ old('excerpt') }}"
-                           id="excerpt"
-                           required
-                    >
-                    @error('excerpt')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                    @enderror
-                </div>
+                <x-form-textarea name="excerpt" />
 
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="body"
-                    >
-                        Body
-                    </label>
+                <x-form-textarea name="body" />
 
-                    <textarea class="border border-gray-400 p-2 w-full"
-                              name="body"
-                              placeholder="Text here..."
-                              value="{{ old('body') }}"
-                              id="body"
-                              required
-                    ></textarea>
-                    @error('email')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="category"
-                    >
-                        Category
-                    </label>
-
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="category"
-                           name="category"
-                           id="category"
-                           required
-                    >
-                    @error('password')
-                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
-                    @enderror
-                </div>
+                <x-form-select name="category_id" label="Category" />
 
                 <div class="mb-6">
                     <button type="submit"
-                            class="bg-green-400 text-white rounded py-2 px-4 hover:bg-green-500"
+                            class="bg-green-400 text-white rounded-xl py-2 px-4 hover:bg-green-500"
                     >
-                        Submit
+                        Publish
                     </button>
                 </div>
                 @error('$message')

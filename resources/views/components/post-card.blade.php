@@ -4,7 +4,9 @@
     {{$attributes->merge(['class' => 'transition-colors duration-300 hover:bg-green-100 rounded-xl'])}}>
     <div class="py-6 px-5">
         <div>
-            <img src="https://picsum.photos/id/{{ $post->id }}/1108/860" alt="Blog Post illustration" class="rounded-xl">
+            <a href="/posts/{{ $post->slug }}">
+                <img src="{{ isset( $post->thumbnail) ? asset('storage/' . $post->thumbnail) : 'https://picsum.photos/id/'.$post->id.'/1108/860' }}" alt="" class="rounded-xl">
+            </a>
         </div>
 
         <div class="mt-8 flex flex-col justify-between">

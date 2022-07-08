@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Models\Post;
+use App\Services\Newsletter;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +19,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
-// Dashboard
-Route::get('/dashboard', [SessionController::class, 'dashboard'])->name('dashboard')->middleware('auth');
-// Add Post
-Route::get('/create-post', [PostController::class, 'create'])->name('add-post')->middleware('auth');
-Route::post('/create-post', [PostController::class, 'store'])->name('add-post')->middleware('auth');
 
+Route::post('newsletter', NewsletterController::class);
+// myposts
+Route::get('/myposts', [SessionController::class, 'myposts'])->name('myposts')->middleware('auth');
 // PostController::class
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('post');
@@ -32,9 +32,14 @@ Route::post('/posts/{post:slug}/comments', [CommentController::class, 'addCommen
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
 // SessionController::class
-Route::get('login', [SessionController::class, 'login'])->middleware('guest');
+Route::get('login', [SessionController::class, 'login'])->middleware('guest')->name('login');
 Route::post('login', [SessionController::class, 'submitLogin'])->middleware('guest');
 Route::get('logout', [SessionController::class, 'logout'])->middleware('auth');
+// admin
+Route::get('/admin/posts/create', [PostController::class, 'create'])->middleware('admin');
+Route::post('/admin/posts', [PostController::class, 'store'])->middleware('admin');
+
+
 
 //Route::get('/?category={category:slug}', function (Category $category) {
 //

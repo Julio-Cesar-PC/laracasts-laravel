@@ -3,7 +3,9 @@
     class="transition-colors duration-300 hover:bg-green-100 rounded-xl">
     <div class="py-6 px-5 lg:flex">
         <div class="flex-1 lg:mr-8">
-            <img src="https://picsum.photos/id/{{ $post->id }}/1108/860" alt="Blog Post illustration" class="rounded-xl">
+            <a href="/posts/{{ $post->slug }}">
+                <img src="{{ isset( $post->thumbnail) ? asset('storage/' . $post->thumbnail) : 'https://picsum.photos/id/'.$post->id.'/1108/860' }}" alt="https://picsum.photos/id/{{ $post->id }}/1108/860" class="rounded-xl">
+            </a>
         </div>
 
         <div class="flex-1 flex flex-col justify-between">

@@ -27,9 +27,9 @@ class SessionController extends Controller
         return back()->withErrors(['message' => 'Invalid email or password']);
     }
 
-    public function dashboard()
+    public function myposts()
     {
-        return view('Dashboard.dashboard');
+        return view('posts.myposts');
     }
 
     public function logout()
