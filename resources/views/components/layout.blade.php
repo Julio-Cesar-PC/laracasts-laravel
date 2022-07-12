@@ -47,6 +47,7 @@
                             </x-slot>
 
                             <x-dropdown-item href="/">Home</x-dropdown-item>
+                            <x-dropdown-item href="/admin/posts">All Posts</x-dropdown-item>
                             <x-dropdown-item href="/myprofile">Profile</x-dropdown-item>
                             <x-dropdown-item href="/myposts">My Posts</x-dropdown-item>
                             <x-dropdown-item href="/admin/posts/create">New Post</x-dropdown-item>

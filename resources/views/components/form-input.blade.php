@@ -1,4 +1,4 @@
-@props(['name', 'type' => 'text'])
+@props(['name', 'type' => 'text', 'value'])
 
 <div class="mb-6">
     <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
@@ -10,7 +10,7 @@
     <input class="border border-gray-400 p-2 w-full"
            type="{{ $type }}"
            name="{{ $name }}"
-           value="{{ old($name) }}"
+           value="{{ isset($value) ? $value : old($name) }}"
            id="{{ $name }}"
            placeholder="{{ ucwords($name) }} here..."
            required

@@ -12,9 +12,8 @@
 
             {{--            <x-posts-grid :posts="{{ auth()->user()->posts }}"></x-posts-grid>--}}
             <div class="flex flex-col">
-                @php($posts = \App\Models\Post::all())
+                @php($posts = auth()->user()->posts)
                 <x-post-table :posts="$posts"></x-post-table>
-                {{ $posts->links() }}
 {{--                @foreach(auth()->user()->posts as $post)--}}
 {{--                    <div class="transition-colors duration-300 py-6 px-5 flex gap-4 h-60 hover:bg-green-100">--}}
 
